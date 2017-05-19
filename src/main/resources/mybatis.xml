@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE configuration   
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="SqlAdapter" type="com.kf.data.mybatis.entity.SqlAdapter" />
+		<!-- end -->
+
+
+	</typeAliases>
+	<!--数据源配置 这块用 BD2数据库 -->
+	<environments default="crawlerMysql">
+
+		<environment id="crawlerMysql">
+			<transactionManager type="jdbc" />
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url"
+					value="jdbc:mysql://localhost:3306/licai?allowMultiQueries=true" />
+				<property name="username" value="spider" />
+				<property name="password" value="spider" />
+				<property name="poolPingQuery" value="SELECT  1+2" />
+				<property name="poolPingEnabled" value="true" />
+			</dataSource>
+		</environment>
+
+	</environments>
+	<mappers>
+		<mapper resource="com/kf/data/mybatis/mapper/SqlAdapterMapper.xml" />
+
+	</mappers>
+</configuration> 
