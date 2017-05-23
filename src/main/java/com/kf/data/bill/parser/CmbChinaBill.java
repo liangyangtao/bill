@@ -16,24 +16,10 @@ public class CmbChinaBill extends BaseBillParser {
 
 	private String bankName = "招商银行";
 
+	private String tableName = "cmbchinabill";
+
 	public CmbChinaBill() {
-		tableNames.put("", "product_name");
-		tableNames.put("", "product_type");
-		tableNames.put("", "product_channel");
-		tableNames.put("", "product_bank");
-		tableNames.put("", "product_stats");
-		tableNames.put("", "product_limit");
-		tableNames.put("", "product_income_type");
-		tableNames.put("", "product_currency");
-		tableNames.put("", "product_purchasse_amount");
-		tableNames.put("", "product_code");
-		tableNames.put("", "product_start");
-		tableNames.put("", "product_end");
-		tableNames.put("", "product_deadline");
-		tableNames.put("", "product_anticipated");
-		tableNames.put("", "product_risk_type");
-		tableNames.put("", "product_invest_type");
-		tableNames.put("", "product_area");
+
 	}
 
 	public void spider() {
@@ -88,7 +74,7 @@ public class CmbChinaBill extends BaseBillParser {
 			result.put("product_area", jsonObject.getString("AreaCode"));
 			result.put("unmd", Md5Tools.GetMD5Code(jsonObject.getString("PrdName")));
 			result.put("uptime", new Date());
-			String sql = "insert into cmbchinabill ";
+			String sql = "insert into " + tableName + " ";
 			new BaseDao().executeMapSql(sql, result);
 		}
 		return totalPage;
