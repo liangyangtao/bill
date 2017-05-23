@@ -7,6 +7,7 @@ import com.kf.data.bill.parser.CmbcBill;
 import com.kf.data.bill.parser.HkbeaBill;
 import com.kf.data.bill.parser.HsbcBill;
 import com.kf.data.bill.parser.HxbBill;
+import com.kf.data.bill.parser.IcbcBill;
 
 public class App {
 
@@ -20,5 +21,6 @@ public class App {
 		// new CiticbankBill().spider();
 		// new HxbBill().spider();
 		//
+		new IcbcBill().spider();
 	}
 }
